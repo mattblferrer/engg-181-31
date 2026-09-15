@@ -49,9 +49,9 @@ module alu_2bitmodule(input M, input [3:0]S, input [1:0]A, input [1:0]B, output 
 	end
 endmodule
 	
-module activity1(input [9:0]SW, output [0:0]LEDR, output [2:0]LEDG);
+module activity1(input [9:0]SW, input [3:0] PB, output [0:0]LEDR, output [2:0]LEDG);
 	maj_4module maj_4(SW[0], SW[1], SW[2], SW[3], LEDR[0]);
-	alu_2bitmodule alu_2bit(SW[6], SW[3:0], SW[5:4], SW[9:8], LEDG[2:0]);
+	alu_2bitmodule alu_2bit(PB[3], SW[3:0], SW[9:8], SW[5:4], LEDG[2:0]);
 endmodule
 
 module tb_activity1();
